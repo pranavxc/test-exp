@@ -44,4 +44,5 @@ jobs:
           echo "Branch: ${{ github.ref }}"
           
           echo "Action ID: ${{ github.action }}"
+          echo "Log ID: ${{ github.run_id }}"
 
