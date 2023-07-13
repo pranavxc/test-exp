@@ -33,7 +33,7 @@ jobs:
         uses: actions/checkout@v3
       - name: production
         run: echo "production"
-        if: ${{ github.event.inputs == 'true' }}
+        if: ${{ github.event.inputs.production == 'true' }}
       - name: staging
         run: echo "staging"
-        if: ${{ github.event.staging == 'true' }}
+        if: ${{ github.event.inputs.staging == 'true' }}
