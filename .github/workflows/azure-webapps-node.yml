@@ -37,3 +37,9 @@ jobs:
       - name: staging
         run: echo "staging"
         if: ${{ github.event.inputs.staging == 'true' }}
+      - name: details
+        run: |
+          echo "User: ${{ github.actor }}"
+          echo "Commit: ${{ github.sha }}"
+          echo "Branch: ${{ github.ref }}"
+
