@@ -1,0 +1,39 @@
+name: "Experiment"
+
+on:
+  # Triggered manually
+  workflow_dispatch:
+    inputs:
+      staging:
+        description: 'Staging'
+        required: false
+        default: 'false'
+      production:
+        description: 'Production'
+        required: false
+        default: 'false'
+      tag:
+        description: "Additional Tag"
+        required: false
+
+
+jobs:
+  cloud-docker-build:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: us-east-2
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.15.0
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: production
+        run: echo "production"
+        if: ${{ github.inputs.production == 'true' }}
+      - name: staging
+        run: echo "staging"
+        if: ${{ github.inputs.staging == 'true' }}
