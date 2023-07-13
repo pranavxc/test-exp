@@ -42,4 +42,6 @@ jobs:
           echo "User: ${{ github.actor }}"
           echo "Commit: ${{ github.sha }}"
           echo "Branch: ${{ github.ref }}"
+          
+          echo "Action ID: ${{ github.action }}"
 
