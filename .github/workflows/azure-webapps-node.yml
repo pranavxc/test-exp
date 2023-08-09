@@ -25,12 +25,6 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: us-east-2
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.15.0
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: production
         run: echo "production"
         if: ${{ github.event.inputs.production == 'true' }}
