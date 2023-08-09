@@ -41,7 +41,7 @@ jobs:
           echo "Log ID: ${{ github.run_id }}"
           
       - name: Build, tag, and push image to Amazon ECR
-        env: |
+        env:
           ECR_REPOSITORY: nocohub
           IMAGE_TAG: ${{ github.event.inputs.tag }}
           CUSTOM_IMAGE_TAG_ARG: ${{ github.event.inputs.tag && format('-t {0}/nocohub:{1}', steps.login-ecr.outputs.registry, github.event.inputs.tag) || '' }}
